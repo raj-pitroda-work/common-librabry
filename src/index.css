@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.absolute {
+  position: absolute !important;
+}
+
+.MuiTextField-root {
+  width: 200px;
+  margin-top: 10px !important;
+}
+
+.MuiCard-root {
+  box-shadow: 1px 2px 8px 7px lightgray !important;
+}
+
+/* Header */
+.top-header {
+  height: 32px;
+}
+.main-content {
+  margin-top: 32px;
+}
+body {
+  background-color: #d3d3d32e !important;
+}
