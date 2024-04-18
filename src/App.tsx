@@ -4,6 +4,7 @@ import AboutUs from "./Pages/AboutUs";
 import Home from "./Pages/Home";
 import NavigationBar from "./components/common/NavigationBar";
 import AlertModal from "./components/common/AlertModal";
+import Footer from "./components/common/Footer";
 
 function App() {
   const [alertModal, setAlertModal] = useState<
@@ -26,12 +27,6 @@ function App() {
             title: "About US",
             onClick: () => {
               navigation("/about-us");
-            },
-          },
-          {
-            title: "Contact Us",
-            onClick: () => {
-              navigation("/contact-us");
             },
           },
           {
@@ -81,7 +76,6 @@ function App() {
             ],
           },
         ]}
-        bgColor="#5f61db"
       />
       <div className="main-content">
         <Routes>
@@ -89,28 +83,7 @@ function App() {
           <Route path="*" Component={Home} />
         </Routes>
       </div>
-      {/* 
-      <CustomModal
-        title="Modal Title"
-        handleClose={toggleSwitch}
-        handleSave={toggleSwitch}
-        isOpen={isSwitchOn}
-      >
-        <CustomAccordion
-          contentDetail={[
-            {
-              content: `content 1`,
-              header: "header 1",
-              isDefaultOpen: false,
-            },
-            {
-              content: `content 2`,
-              header: "header 2",
-              isDefaultOpen: false,
-            },
-          ]}
-        />
-      </CustomModal>*/}
+      <Footer />
       {alertModal && (
         <AlertModal
           handleClose={() => setAlertModal("")}

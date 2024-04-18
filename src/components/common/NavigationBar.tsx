@@ -216,7 +216,7 @@ const NavigationBar: React.FC<IProp> = (props) => {
                       {item.subChild?.map((x) => {
                         return (
                           <MenuItem
-                            key={`sub-chil-${item.title}-${x.title}`}
+                            key={`sub-child-${item.title}-${x.title}`}
                             onClick={() => {
                               x.onClick();
                               handleMenuClose();

@@ -1,10 +1,10 @@
-import { Switch } from "@mui/material";
+import { Switch, SwitchProps } from "@mui/material";
 import React from "react";
 
 type IProp = {
   isChecked: boolean;
   handleSwitchToggle: (isChecked: boolean) => void;
-  swithcBg?:
+  switchBg?:
     | "primary"
     | "secondary"
     | "error"
@@ -18,26 +18,28 @@ type IProp = {
   rightLbl?: string;
 };
 
-const CustomSwitch: React.FC<IProp> = (props) => {
+const CustomSwitch: React.FC<IProp & Partial<SwitchProps>> = (props) => {
   const {
     leftLbl,
     rightLbl,
     isChecked,
     handleSwitchToggle,
     size = "medium",
-    swithcBg,
+    switchBg,
     disabled,
+    ...rest
   } = props;
 
   return (
     <>
       {leftLbl && <span className="size-2">{leftLbl}</span>}
       <Switch
-        color={swithcBg}
+        color={switchBg}
         checked={isChecked}
         onChange={(_e, cheked) => handleSwitchToggle(cheked)}
         disabled={disabled}
         size={size}
+        {...rest}
       />
       {rightLbl && <span className="size-2">{rightLbl}</span>}
     </>

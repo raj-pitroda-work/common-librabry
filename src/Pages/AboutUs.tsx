@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { useState } from "react";
 import CustomAccordion from "../components/common/CustomAccordion";
 import CustomSwitch from "../components/common/CustomSwitch";
@@ -100,28 +100,32 @@ const AboutUs = () => {
   };
   return (
     <div className="m-6 p-2 bg-white">
-      <div className="flex justify-between mt-2">
-        <h1 className=" text-center text-4xl  font-bold p-dark-c">
-          Welcome Common Library
-        </h1>
-        <div>
-          <CustomSwitch
-            leftLbl="As Accordion"
-            isChecked={showAs === "accordion"}
-            handleSwitchToggle={() => handleSwitch("accordion")}
-            size="medium"
-          />
-          <CustomSwitch
-            leftLbl="As Tabs"
-            isChecked={showAs === "tab"}
-            handleSwitchToggle={() => {
-              setCurrentTab(0);
-              handleSwitch("tab");
-            }}
-            size="medium"
-          />
-        </div>
-      </div>
+      <Grid container>
+        <Grid item xs={12} md={6}>
+          <h1 className="text-4xl  font-bold p-dark-c">
+            Welcome Common Library
+          </h1>
+        </Grid>
+        <Grid item xs={12} md={6} className="lg:text-end">
+          <div>
+            <CustomSwitch
+              leftLbl="As Accordion"
+              isChecked={showAs === "accordion"}
+              handleSwitchToggle={() => handleSwitch("accordion")}
+              size="medium"
+            />
+            <CustomSwitch
+              leftLbl="As Tabs"
+              isChecked={showAs === "tab"}
+              handleSwitchToggle={() => {
+                setCurrentTab(0);
+                handleSwitch("tab");
+              }}
+              size="medium"
+            />
+          </div>
+        </Grid>
+      </Grid>
 
       {showAs === "accordion" ? (
         <div className="mt-4">

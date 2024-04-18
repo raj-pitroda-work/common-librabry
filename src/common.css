@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(249, 236, 236) !important;
+  background-color: rgb(249 236 236) !important;
 }
 
 .absolute {
@@ -12,4 +12,8 @@ body {
 
 .p-dark-c {
   color: #5f61db !important;
+}
+
+.p-dark-bg {
+  background-color: #5f61db !important;
 }

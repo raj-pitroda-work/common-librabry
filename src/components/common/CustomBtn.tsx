@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, ButtonProps } from "@mui/material";
 import React from "react";
 
 type IProp = {
@@ -18,7 +18,7 @@ type IProp = {
   autoFocus?: boolean;
 };
 
-const CustomBtn: React.FC<IProp> = (props) => {
+const CustomBtn: React.FC<IProp & Partial<ButtonProps>> = (props) => {
   const {
     variant,
     lbl,
@@ -27,6 +27,7 @@ const CustomBtn: React.FC<IProp> = (props) => {
     disabled,
     color = "primary",
     autoFocus,
+    ...rest
   } = props;
   return (
     <Button
@@ -36,6 +37,7 @@ const CustomBtn: React.FC<IProp> = (props) => {
       onClick={handleBtnClick}
       disabled={disabled}
       autoFocus={autoFocus}
+      {...rest}
     >
       {lbl}
     </Button>
