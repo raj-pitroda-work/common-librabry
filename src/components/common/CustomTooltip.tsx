@@ -24,12 +24,11 @@ type IProp = {
 const CustomTooltip: React.FC<IProp> = (props) => {
   const {
     content,
-    position = "bottom",
+    position = "top",
     textColor = "white",
     children,
     bgColor = "",
   } = props;
-
   const CTooltip = styled(({ className, ...props }: TooltipProps) => (
     <Tooltip {...props} classes={{ popper: className }} />
   ))`
@@ -42,11 +41,9 @@ const CustomTooltip: React.FC<IProp> = (props) => {
     }
   `;
   return (
-    // <ThemeProvider theme={theme}>
     <CTooltip title={content} placement={position} arrow>
       {children}
     </CTooltip>
-    // </ThemeProvider>
   );
 };
 

@@ -8,7 +8,7 @@ type IProp = {
   lbl: string;
   type?: "email" | "text" | "password" | "number";
   size?: "small" | "medium";
-  varient?: TextFieldVariants;
+  variant?: TextFieldVariants;
 };
 
 const CustomTextfield: React.FC<IProp> = (props) => {
@@ -17,7 +17,7 @@ const CustomTextfield: React.FC<IProp> = (props) => {
     lbl,
     type = "text",
     size = "small",
-    varient = "standard",
+    variant = "standard",
   } = props;
 
   const [showText, setShowText] = useState(false);
@@ -58,7 +58,7 @@ const CustomTextfield: React.FC<IProp> = (props) => {
       id={name}
       label={lbl}
       type={showText ? "text" : type}
-      variant={varient}
+      variant={variant}
       size={size}
       onChange={handleChange}
       value={val}

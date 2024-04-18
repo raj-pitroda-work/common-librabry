@@ -22,6 +22,7 @@ import {
   styled,
 } from "@mui/material";
 import React, { Fragment, MouseEvent, useState } from "react";
+import CustomTooltip from "./CustomTooltip";
 
 type IProp = {
   links: {
@@ -156,6 +157,7 @@ const NavigationBar: React.FC<IProp> = (props) => {
                     <ListItemButton
                       sx={{ textAlign: "center" }}
                       key={`${x.title}-${item.title}-${index}-${subIndex}`}
+                      onClick={x.onClick}
                     >
                       <ListItemText primary={item.title} />
                     </ListItemButton>
@@ -214,8 +216,11 @@ const NavigationBar: React.FC<IProp> = (props) => {
                       {item.subChild?.map((x) => {
                         return (
                           <MenuItem
-                            onClick={handleMenuClose}
                             key={`sub-chil-${item.title}-${x.title}`}
+                            onClick={() => {
+                              x.onClick();
+                              handleMenuClose();
+                            }}
                           >
                             {x.title}
                           </MenuItem>
@@ -225,13 +230,11 @@ const NavigationBar: React.FC<IProp> = (props) => {
                   )}
                 </Fragment>
               ) : (
-                <Button
-                  key={item.title}
-                  sx={{ color: "#fff" }}
-                  onClick={item.onClick}
-                >
-                  {item.title}
-                </Button>
+                <CustomTooltip content={item.title} key={item.title}>
+                  <Button sx={{ color: "#fff" }} onClick={item.onClick}>
+                    {item.title}
+                  </Button>
+                </CustomTooltip>
               )
             )}
           </Box>

@@ -51,19 +51,13 @@ const CustomModal: React.FC<IProp> = (props) => {
       fullScreen={fullScreen}
       maxWidth={maxWidth ? maxWidth : false}
     >
-      <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
+      <DialogTitle sx={{ m: 0, p: 1 }} id="customized-dialog-title">
         {title}
       </DialogTitle>
       <IconButton
         aria-label="close"
         onClick={handleClose}
-        className="absolute right-2 top-3 text-gray-200 p-0"
-        // sx={{
-        //     position: 'absolute',
-        //     right: 8,
-        //     top: 8,
-        //     color: (theme) => theme.palette.grey[500],
-        //   }}
+        className="absolute right-2 top-2 text-gray-200 p-0"
       >
         <CloseIcon />
       </IconButton>

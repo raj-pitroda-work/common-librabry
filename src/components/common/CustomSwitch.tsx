@@ -25,7 +25,7 @@ const CustomSwitch: React.FC<IProp> = (props) => {
     isChecked,
     handleSwitchToggle,
     size = "medium",
-    swithcBg = "error",
+    swithcBg,
     disabled,
   } = props;
 

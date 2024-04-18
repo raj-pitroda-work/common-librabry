@@ -1,5 +1,5 @@
 import { Card, CardMedia, CardContent, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 
 type IProp = {
   children: any;
@@ -11,18 +11,37 @@ type IProp = {
 
 const CustomCard: React.FC<IProp> = (props) => {
   const { children, imgUrl, cardMaxWidth, imgHeight, cardTitle } = props;
+  const [isZoomed, setIsZoomed] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsZoomed(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsZoomed(false);
+  };
   return (
     <>
-      <Card sx={{ maxWidth: cardMaxWidth ? cardMaxWidth : "100%" }}>
+      <Card
+        sx={{ maxWidth: cardMaxWidth ? cardMaxWidth : "100%" }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         {imgUrl && (
           <CardMedia
             sx={{ height: imgHeight ? imgHeight : 150 }}
             image={imgUrl}
+            className={`zoom-image ${isZoomed ? "zoomed" : ""}`}
           />
         )}
         <CardContent>
           {cardTitle && (
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              className="font-bold"
+            >
               {cardTitle}
             </Typography>
           )}

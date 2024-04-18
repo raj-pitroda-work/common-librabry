@@ -62,7 +62,11 @@ const CustomTab: React.FC<IProp> = ({
                 height: verticalBoxHeight ? verticalBoxHeight : 250,
                 border: "1px solid lightGray",
               }
-            : { borderBottom: 1, borderColor: "divider" }
+            : {
+                border: 1,
+                borderTop: 0,
+                borderColor: "divider",
+              }
         }
       >
         <CTabs
